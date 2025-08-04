@@ -1,0 +1,14 @@
+[
+    {
+        "id": "filme1",
+        "titulo": "John Wick 1",
+        "capa": "img/capas/filme1.jpg",
+        "link": "https://drive.google.com/file/d/1c5Y7fTejg_de476DG9-LfUQPMilyrca-/view?usp=drive_link"
+    },
+    {
+        "id": "serie1-ep1",
+        "titulo": "Série Exemplo - Ep 1",
+        "capa": "img/capas/serie1.jpg",
+        "link": "https://drive.google.com/file/d/ID_DO_EP1/view"
+    }
+]
