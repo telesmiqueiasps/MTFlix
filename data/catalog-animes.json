@@ -1,0 +1,41 @@
+[
+    {
+        "id": "anime1",
+        "tipo": "anime",
+        "titulo": "Demon Slayer: Kimetsu no Yaiba",
+        "capa": "img/capas/demon_slayer.jpg",
+        "dataAdicao": "2025-08-01",
+        "temporadas": [
+            {
+                "id": "t1",
+                "titulo": "Temporada 1",
+                "episodios": [
+                    {
+                        "id": "anime1-t1-ep1",
+                        "nome": "Episódio 1",
+                        "link": "https://drive.google.com/file/d/ID_EP1/view",
+                        "thumbnail": "img/thumbnails/anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep2",
+                        "nome": "Episódio 2",
+                        "link": "https://mega.nz/file/ID_EP2",
+                        "thumbnail": "img/thumbnails/anime1-t1.jpg"
+                    }
+                ]
+            },
+            {
+                "id": "t2",
+                "titulo": "Temporada 2",
+                "episodios": [
+                    {
+                        "id": "anime1-t2-ep1",
+                        "nome": "Episódio 1",
+                        "link": "https://drive.google.com/file/d/ID_EP1T2/view",
+                        "thumbnail": "img/thumbnails/anime1-t2-ep1.jpg"
+                    }
+                ]
+            }
+        ]
+    }
+]

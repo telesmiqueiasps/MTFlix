@@ -1,0 +1,34 @@
+[
+    {
+        "id": "filme1",
+        "tipo": "filme",
+        "titulo": "Bailarina - Do Universo de John Wick",
+        "capa": "img/capas/bailarina.jpeg",
+        "link": "https://drive.google.com/file/d/1c5Y7fTejg_de476DG9-LfUQPMilyrca-/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme2",
+        "tipo": "filme",
+        "titulo": "O Senhor dos Anéis: A Sociedade do Anel",
+        "capa": "img/capas/senhor_dos_aneis1.jpg",
+        "link": "https://drive.google.com/file/d/1ATM3x53VvrqkgVAuwvhWKEz2f8oJJLzs/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme3",
+        "tipo": "filme",
+        "titulo": "O Senhor dos Anéis: As Duas Torres",
+        "capa": "img/capas/senhor_dos_aneis2.jpg",
+        "link": "https://drive.google.com/file/d/1YlsxPqEAopqPaYyX-nvnSxNteKgScoFe/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme4",
+        "tipo": "filme",
+        "titulo": "O Senhor dos Anéis: O Retorno do Rei",
+        "capa": "img/capas/senhor_dos_aneis3.jpg",
+        "link": "https://drive.google.com/file/d/13mueQf5TC4-Ggd63KpFmkBJPwsFIopRw/preview",
+        "dataAdicao": "2025-08-04"
+    }
+]

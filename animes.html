@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Animes</h1>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="filmes.html">Filmes</a></li>
+                <li><a href="series.html">Séries</a></li>
+            </ul>
+            <input type="text" id="search" placeholder="Pesquisar...">
+        </nav>
+    </header>
+
+    <main id="catalogo"></main>
+
+    <script src="script.js"></script>
+    <script>
+        carregarCatalogo("data/catalog-animes.json");
+    </script>
+</body>
+</html>
