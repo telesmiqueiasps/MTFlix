@@ -3,7 +3,7 @@
         "id": "filme1",
         "tipo": "filme",
         "titulo": "Bailarina - Do Universo de John Wick",
-        "capa": "img/capas/bailarina.jpeg",
+        "capa": "img/capas/filmes/capa_filme1.jpg",
         "link": "https://drive.google.com/file/d/1c5Y7fTejg_de476DG9-LfUQPMilyrca-/preview",
         "dataAdicao": "2025-08-04"
     },
@@ -11,7 +11,7 @@
         "id": "filme2",
         "tipo": "filme",
         "titulo": "O Senhor dos Anéis: A Sociedade do Anel",
-        "capa": "img/capas/senhor_dos_aneis1.jpg",
+        "capa": "img/capas/filmes/capa_filme2.jpg",
         "link": "https://drive.google.com/file/d/1ATM3x53VvrqkgVAuwvhWKEz2f8oJJLzs/preview",
         "dataAdicao": "2025-08-04"
     },
@@ -19,7 +19,7 @@
         "id": "filme3",
         "tipo": "filme",
         "titulo": "O Senhor dos Anéis: As Duas Torres",
-        "capa": "img/capas/senhor_dos_aneis2.jpg",
+        "capa": "img/capas/filmes/capa_filme3.jpg",
         "link": "https://drive.google.com/file/d/1YlsxPqEAopqPaYyX-nvnSxNteKgScoFe/preview",
         "dataAdicao": "2025-08-04"
     },
@@ -27,8 +27,104 @@
         "id": "filme4",
         "tipo": "filme",
         "titulo": "O Senhor dos Anéis: O Retorno do Rei",
-        "capa": "img/capas/senhor_dos_aneis3.jpg",
+        "capa": "img/capas/filmes/capa_filme4.jpg",
         "link": "https://drive.google.com/file/d/13mueQf5TC4-Ggd63KpFmkBJPwsFIopRw/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme5",
+        "tipo": "filme",
+        "titulo": "O Hobbit: Uma Jornada Inesperada",
+        "capa": "img/capas/filmes/capa_filme5.jpg",
+        "link": "https://drive.google.com/file/d/1dIuXWouni65-xA3OR4rfoG-_JQAyjUPO/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme6",
+        "tipo": "filme",
+        "titulo": "O Hobbit: A Desolação de Smaug",
+        "capa": "img/capas/filmes/capa_filme6.jpg",
+        "link": "https://drive.google.com/file/d/15Q0Dx6ZlWEgZh0UoVqEQ3ffl7BRHBNVi/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme7",
+        "tipo": "filme",
+        "titulo": "O Hobbit: A Batalha dos Cinco Exércitos",
+        "capa": "img/capas/filmes/capa_filme7.jpg",
+        "link": "https://drive.google.com/file/d/1-5cYdTouG6agrgKqyQTuo-qosVcMjgLv/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme8",
+        "tipo": "filme",
+        "titulo": "Harry Potter e a Pedra Filosofal",
+        "capa": "img/capas/filmes/capa_filme8.jpg",
+        "link": "https://drive.google.com/file/d/1XUniwCUHkqo_K2nbfC-9YtijvqwUM-X1/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme9",
+        "tipo": "filme",
+        "titulo": "Harry Potter e a Câmara Secreta",
+        "capa": "img/capas/filmes/capa_filme9.jpg",
+        "link": "https://drive.google.com/file/d/1VHfP-onIPn1zJR2QcO7gleNcggahKQFK/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme10",
+        "tipo": "filme",
+        "titulo": "Harry Potter e o Prisioneiro de Azkaban",
+        "capa": "img/capas/filmes/capa_filme10.jpg",
+        "link": "https://drive.google.com/file/d/1AGXczpSrwyy1OAFHZd7M1P1_4eyWZK5p/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme11",
+        "tipo": "filme",
+        "titulo": "Harry Potter e o calice de Fogo",
+        "capa": "img/capas/filmes/capa_filme11.jpg",
+        "link": "https://drive.google.com/file/d/1vkYUMCGgmJE_wELmhg2KDRK9TR3lWke5/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme12",
+        "tipo": "filme",
+        "titulo": "Harry Potter e a Ordem da Fênix",
+        "capa": "img/capas/filmes/capa_filme12.jpg",
+        "link": "https://drive.google.com/file/d/1aI5kjgspDpZZ9gdJF7gNXK6gRmdvaCjW/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme13",
+        "tipo": "filme",
+        "titulo": "Harry Potter e o Enigma do Príncipe",
+        "capa": "img/capas/filmes/capa_filme13.jpg",
+        "link": "https://drive.google.com/file/d/1EcbkIjFZXlExd7mcHiQjA2SZwfzn400W/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme14",
+        "tipo": "filme",
+        "titulo": "Harry Potter e as Relíquias da Morte: Parte 1",
+        "capa": "img/capas/filmes/capa_filme14.jpg",
+        "link": "https://drive.google.com/file/d/19-DQ9vm3DDY-8CBJHMLeUobb8oc3lmR6/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme15",
+        "tipo": "filme",
+        "titulo": "Harry Potter e as Relíquias da Morte: Parte 2",
+        "capa": "img/capas/filmes/capa_filme15.jpg",
+        "link": "https://drive.google.com/file/d/1uniheautIDqMuTQskCHJyYv9ZVmo8fK5/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme16",
+        "tipo": "filme",
+        "titulo": "Animais Fantásticos e Onde Habitam",
+        "capa": "img/capas/filmes/capa_filme16.jpg",
+        "link": "https://drive.google.com/file/d/1Hn0q0SP7LhWG47waGFa8D7yW6OPwptpC/preview",
         "dataAdicao": "2025-08-04"
     }
 ]

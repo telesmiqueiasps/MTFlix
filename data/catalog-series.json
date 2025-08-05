@@ -3,7 +3,7 @@
         "id": "serie1",
         "tipo": "serie",
         "titulo": "Dark",
-        "capa": "img/capas/dark.jpg",
+        "capa": "img/capas/series/capa_serie1.jpg",
         "dataAdicao": "2025-08-04",
         "temporadas": [
             {
@@ -14,61 +14,61 @@
                         "id": "serie1-t1-ep1",
                         "nome": "Episódio 1",
                         "link": "https://drive.google.com/file/d/1l_KqYnCRNPPHOiKPkltLNhsNGXjBHU9_/preview",
-                        "thumbnail": "img/thumbnails/serie1-t1.jpeg"
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t1.jpg"
                     },
                     {
                         "id": "serie1-t1-ep2",
                         "nome": "Episódio 2",
                         "link": "https://drive.google.com/file/d/1arGgu7fMt-T67aBrkPJzUs6R0-qEnxmz/preview",
-                        "thumbnail": "img/thumbnails/serie1-t1.jpeg"
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t1.jpg"
                     },
                     {
                         "id": "serie1-t1-ep3",
                         "nome": "Episódio 3",
                         "link": "https://drive.google.com/file/d/1jkaD3l__9e_QjA00t7BxuPWA4_wktQFN/preview",
-                        "thumbnail": "img/thumbnails/serie1-t1.jpeg"
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t1.jpg"
                     },
                     {
                         "id": "serie1-t1-ep4",
                         "nome": "Episódio 4",
                         "link": "https://drive.google.com/file/d/1VoF_5QcSJDjb-qym5vfZAVeaXPyDTm0Z/preview",
-                        "thumbnail": "img/thumbnails/serie1-t1.jpeg"
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t1.jpg"
                     },
                     {
                         "id": "serie1-t1-ep5",
                         "nome": "Episódio 5",
                         "link": "https://drive.google.com/file/d/1Uh9Hiw-AGllEW8fBZ6idPZ9XhJYN5MN6/preview",
-                        "thumbnail": "img/thumbnails/serie1-t1.jpeg"
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t1.jpg"
                     },
                     {
                         "id": "serie1-t1-ep6",
                         "nome": "Episódio 6",
                         "link": "https://drive.google.com/file/d/1i1I3m2MP4cQTslmdp8Iw4fgMi5XhbSqO/preview",
-                        "thumbnail": "img/thumbnails/serie1-t1.jpeg"
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t1.jpg"
                     },
                     {
                         "id": "serie1-t1-ep7",
                         "nome": "Episódio 7",
                         "link": "https://drive.google.com/file/d/19jzQbfrDnltPtOW1lqeQ9Bwi08LCHltP/preview",
-                        "thumbnail": "img/thumbnails/serie1-t1.jpeg"
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t1.jpg"
                     },
                     {
                         "id": "serie1-t1-ep8",
                         "nome": "Episódio 8",
                         "link": "https://drive.google.com/file/d/1uAqBninufHIAl0w_HyNHMCL78DIAMlot/preview",
-                        "thumbnail": "img/thumbnails/serie1-t1.jpeg"
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t1.jpg"
                     },
                     {
                         "id": "serie1-t1-ep9",
                         "nome": "Episódio 9",
                         "link": "https://drive.google.com/file/d/1N_G6G0sUa4_uUEoVaFCsUCJpV2p54chy/preview",
-                        "thumbnail": "img/thumbnails/serie1-t1.jpeg"
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t1.jpg"
                     },
                     {
                         "id": "serie1-t1-ep10",
                         "nome": "Episódio 10",
                         "link": "https://drive.google.com/file/d/1JgExHVibQ3GjRmytpJHOGEVPlxD-Keug/preview",
-                        "thumbnail": "img/thumbnails/serie1-t1.jpeg"
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t1.jpg"
                     }
                 ]
             },
@@ -80,7 +80,7 @@
                         "id": "serie1-t2-ep1",
                         "nome": "Episódio 1",
                         "link": "https://drive.google.com/file/d/ID_EP1T2/view",
-                        "thumbnail": "img/thumbnails/serie1-t2.jpeg"
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t2.jpg"
                     }
                 ]
             }
