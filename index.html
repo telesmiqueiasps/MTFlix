@@ -5,130 +5,167 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telles Flix</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* === Cabeçalho === */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #111;
+            padding: 0.7rem 1rem;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #e50914;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+            transition: max-height 0.3s ease;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links li a:hover {
+            color: #e50914;
+        }
+
+        .search-box {
+            margin-left: 1rem;
+        }
+
+        .search-box input {
+            padding: 0.3rem;
+            border-radius: 4px;
+            border: none;
+        }
+
+        /* Botão menu (mobile) */
+        .menu-toggle {
+            display: none;
+            background: none;
+            color: white;
+            font-size: 1.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* === Responsivo === */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #111;
+                width: 200px;
+                padding: 1rem;
+                max-height: 0;
+                overflow: hidden;
+            }
+
+            .nav-links.show {
+                max-height: 300px;
+            }
+
+            .search-box {
+                display: none;
+            }
+        }
+
+        /* === Cards do catálogo === */
+        #catalogo {
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .card {
+            background: #222;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 0.5rem;
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            margin: 0.5rem 0;
+            color: white;
+        }
+
+        .card button {
+            padding: 0.4rem;
+            border: none;
+            border-radius: 4px;
+            background: #e50914;
+            color: white;
+            cursor: pointer;
+        }
+
+        .card button.watched {
+            background: #4caf50;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav>
-            <h1>Telles Flix</h1>
-            <ul>
+        <nav class="navbar">
+            <div class="logo">Telles Flix</div>
+            
+            <button class="menu-toggle" id="menuToggle">☰</button>
+            
+            <ul class="nav-links" id="navLinks">
                 <li><a href="filmes.html">Filmes</a></li>
                 <li><a href="series.html">Séries</a></li>
                 <li><a href="animes.html">Animes</a></li>
             </ul>
-            <input type="text" id="search" placeholder="Pesquisar...">
+
+            <div class="search-box">
+                <input type="text" id="search" placeholder="Pesquisar...">
+            </div>
         </nav>
     </header>
 
     <section>
-        <h2 style="padding-left:1rem;">Últimos adicionados</h2>
+        <h2 style="padding-left:1rem; color:white;">Últimos adicionados</h2>
         <main id="catalogo"></main>
     </section>
+
+    <script>
+        // Toggle menu mobile
+        document.getElementById("menuToggle").addEventListener("click", () => {
+            document.getElementById("navLinks").classList.toggle("show");
+        });
+    </script>
 
     <script src="assistidos.js"></script>
     <script src="script.js"></script>
     <script>
-        function carregarUltimosAdicionados(urls) {
-            const container = document.getElementById("catalogo");
-            const searchInput = document.getElementById("search");
-            let assistidos = JSON.parse(localStorage.getItem("assistidos")) || [];
-            let todosItens = [];
-
-            Promise.all(urls.map(url => fetch(url).then(r => r.json())))
-                .then(respostas => {
-                    respostas.forEach(lista => {
-                        lista.forEach(item => {
-                            if ((item.tipo === "serie" || item.tipo === "anime") && item.temporadas) {
-                                let dataUltimaTemp = "2025-01-01";
-                                item.temporadas.forEach(temp => {
-                                    if (temp.dataAdicao && new Date(temp.dataAdicao) > new Date(dataUltimaTemp)) {
-                                        dataUltimaTemp = temp.dataAdicao;
-                                    }
-                                });
-
-                                todosItens.push({
-                                    id: item.id,
-                                    tipo: item.tipo,
-                                    titulo: item.titulo,
-                                    capa: item.capa,
-                                    link: `${item.tipo}.html?id=${item.id}`,
-                                    dataAdicao: dataUltimaTemp
-                                });
-                            } else {
-                                todosItens.push({
-                                    ...item,
-                                    dataAdicao: item.dataAdicao || "2025-01-01"
-                                });
-                            }
-                        });
-                    });
-
-                    todosItens.sort((a, b) => new Date(b.dataAdicao) - new Date(a.dataAdicao));
-
-                    function renderCatalogo(filtro = "") {
-                        container.innerHTML = "";
-                        todosItens
-                            .filter(item => item.titulo.toLowerCase().includes(filtro.toLowerCase()))
-                            .forEach(item => {
-                                const card = document.createElement("div");
-                                card.classList.add("card");
-
-                                const img = document.createElement("img");
-                                img.src = item.capa;
-                                img.alt = item.titulo;
-
-                                const titulo = document.createElement("h3");
-                                titulo.textContent = item.titulo;
-
-                                if (item.tipo === "serie" || item.tipo === "anime") {
-                                    const btnVer = document.createElement("button");
-                                    btnVer.textContent = "Ver episódios";
-                                    btnVer.addEventListener("click", () => {
-                                        window.location.href = item.link;
-                                    });
-                                    card.appendChild(img);
-                                    card.appendChild(titulo);
-                                    card.appendChild(btnVer);
-                                } else if (item.tipo === "filme") {
-                                    const assistido = assistidos.includes(item.id);
-
-                                    const btnAssistir = document.createElement("button");
-                                    btnAssistir.textContent = assistido ? "Assistido ✅" : "Assistir";
-                                    if (assistido) btnAssistir.classList.add("watched");
-
-                                    btnAssistir.addEventListener("click", () => {
-                                        window.open(item.link, "_blank");
-                                        marcarAssistido("filme", item.id);
-                                        renderCatalogo(filtro);
-                                    });
-
-                                    card.appendChild(img);
-                                    card.appendChild(titulo);
-                                    card.appendChild(btnAssistir);
-
-                                    if (assistido) {
-                                        const btnDesmarcar = document.createElement("button");
-                                        btnDesmarcar.textContent = "Marcar como não assistido";
-                                        btnDesmarcar.style.background = "#555";
-                                        btnDesmarcar.addEventListener("click", () => {
-                                            marcarNaoAssistido("filme", item.id);
-                                            renderCatalogo(filtro);
-                                        });
-                                        card.appendChild(btnDesmarcar);
-                                    }
-                                }
-
-                                container.appendChild(card);
-                            });
-                    }
-
-                    searchInput?.addEventListener("input", e => {
-                        renderCatalogo(e.target.value);
-                    });
-
-                    renderCatalogo();
-                });
-        }
-
         carregarUltimosAdicionados([
             "data/catalog-filmes.json",
             "data/catalog-series.json",
