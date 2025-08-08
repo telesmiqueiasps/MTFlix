@@ -61,13 +61,13 @@
                     {
                         "id": "serie1-t1-ep9",
                         "nome": "Episódio 9",
-                        "link": "https://drive.google.com/file/d/1N_G6G0sUa4_uUEoVaFCsUCJpV2p54chy/preview",
+                        "link": "https://drive.google.com/file/d/1sh24Bkw_4c5IXeERS9r5ORRlgma9YpIS/preview",
                         "thumbnail": "img/thumbnails/series/thumb_serie1-t1.jpg"
                     },
                     {
                         "id": "serie1-t1-ep10",
                         "nome": "Episódio 10",
-                        "link": "https://drive.google.com/file/d/1JgExHVibQ3GjRmytpJHOGEVPlxD-Keug/preview",
+                        "link": "https://drive.google.com/file/d/1UD0SePXTBNp3ubiU4OhrGrvphNdmH1fU/preview",
                         "thumbnail": "img/thumbnails/series/thumb_serie1-t1.jpg"
                     }
                 ]
@@ -79,9 +79,51 @@
                     {
                         "id": "serie1-t2-ep1",
                         "nome": "Episódio 1",
-                        "link": "https://drive.google.com/file/d/ID_EP1T2/view",
+                        "link": "https://drive.google.com/file/d/1J1izYDto_pvD-WJRNku7Me-I6PuUqwF-/preview",
                         "thumbnail": "img/thumbnails/series/thumb_serie1-t2.jpg"
-                    }
+                    },
+                    {
+                        "id": "serie1-t2-ep2",
+                        "nome": "Episódio 2",
+                        "link": "https://https://drive.google.com/file/d/178mnGNBrhP1sskOGvjCBNGyCt2xuSK_2/preview",
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t2.jpg"
+                    },
+                    {
+                        "id": "serie1-t2-ep3",
+                        "nome": "Episódio 3",
+                        "link": "https://drive.google.com/file/d/1YgXitbsi9Ysef2l5c9UpP6a4DpEktQJE/preview",
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t2.jpg"
+                    },
+                    {
+                        "id": "serie1-t2-ep4",
+                        "nome": "Episódio 4",
+                        "link": "https://drive.google.com/file/d/1yWMs53Fm5090ILgpmiMBPuP2dZ-iBzJh/preview",
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t2.jpg"
+                    },
+                    {
+                        "id": "serie1-t2-ep5",
+                        "nome": "Episódio 5",
+                        "link": "https://drive.google.com/file/d/1ftgIzYipBBUiG8IHAoispFHL2t_FbxMK/preview",
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t2.jpg"
+                    },
+                    {
+                        "id": "serie1-t2-ep6",
+                        "nome": "Episódio 6",
+                        "link": "https://drive.google.com/file/d/18TJRLQiZn6rMzTDHucIW6NUaiLAPuZEX/preview",
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t2.jpg"
+                    },
+                    {
+                        "id": "serie1-t2-ep7",
+                        "nome": "Episódio 7",
+                        "link": "https://drive.google.com/file/d/15P85GuIy-NXFN4WHcu4qNLVJ5i4LZOAA/preview",
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t2.jpg"
+                    },
+                    {
+                        "id": "serie1-t2-ep8",
+                        "nome": "Episódio 8",
+                        "link": "https://drive.google.com/file/d/1xkxRnoAy38LK6RCtU6cvetuMLxPgibjG/preview",
+                        "thumbnail": "img/thumbnails/series/thumb_serie1-t2.jpg"
+                    }                 
                 ]
             }
         ]
