@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do Anime - StreamFlix</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Detalhes da Série - StreamFlix</title>
     <style>
         * {
             margin: 0;
@@ -68,9 +68,9 @@
         }
 
         .back-button {
-            background: rgba(255, 154, 158, 0.2);
-            color: #ff9a9e;
-            border: 1px solid #ff9a9e;
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ecdc4;
+            border: 1px solid #4ecdc4;
             padding: 10px 20px;
             border-radius: 25px;
             text-decoration: none;
@@ -79,14 +79,15 @@
             gap: 10px;
             margin: 2rem 0;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .back-button:hover {
-            background: rgba(255, 154, 158, 0.3);
+            background: rgba(78, 205, 196, 0.3);
             transform: translateX(-5px);
         }
 
-        .anime-header {
+        .serie-header {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 2rem;
@@ -95,37 +96,34 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .anime-info {
+        .serie-info {
             display: grid;
             grid-template-columns: 250px 1fr;
             gap: 2rem;
             align-items: start;
         }
 
-        .anime-poster {
+        .serie-poster {
             width: 100%;
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .anime-poster img {
+        .serie-poster img {
             width: 100%;
             height: 350px;
             object-fit: cover;
         }
 
-        .anime-details h1 {
+        .serie-details h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ff9a9e, #fecfef);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #4ecdc4;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
 
-        .anime-meta {
+        .serie-meta {
             display: flex;
             gap: 1rem;
             margin-bottom: 1.5rem;
@@ -133,12 +131,12 @@
         }
 
         .meta-item {
-            background: rgba(255, 154, 158, 0.2);
-            color: #ff9a9e;
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ecdc4;
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
-            border: 1px solid rgba(255, 154, 158, 0.3);
+            border: 1px solid rgba(78, 205, 196, 0.3);
         }
 
         .seasons-section {
@@ -148,7 +146,7 @@
         .section-title {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: #ff9a9e;
+            color: #4ecdc4;
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -158,7 +156,7 @@
             content: '';
             width: 4px;
             height: 30px;
-            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
             border-radius: 2px;
         }
 
@@ -198,7 +196,7 @@
         }
 
         .season-episodes {
-            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
             color: white;
             padding: 5px 12px;
             border-radius: 20px;
@@ -213,7 +211,7 @@
         }
 
         .watch-button {
-            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
             color: white;
             border: none;
             padding: 12px 25px;
@@ -226,7 +224,7 @@
 
         .watch-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 154, 158, 0.4);
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
         }
 
         .loading {
@@ -240,7 +238,7 @@
             width: 50px;
             height: 50px;
             border: 4px solid rgba(255, 255, 255, 0.1);
-            border-left: 4px solid #ff9a9e;
+            border-left: 4px solid #4ecdc4;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -295,17 +293,17 @@
                 text-align: center;
             }
 
-            .anime-info {
+            .serie-info {
                 grid-template-columns: 1fr;
                 text-align: center;
             }
 
-            .anime-poster {
+            .serie-poster {
                 max-width: 300px;
                 margin: 0 auto;
             }
 
-            .anime-details h1 {
+            .serie-details h1 {
                 font-size: 2rem;
             }
 
@@ -319,11 +317,11 @@
         }
 
         @media (max-width: 480px) {
-            .anime-header {
+            .serie-header {
                 padding: 1rem;
             }
             
-            .anime-details h1 {
+            .serie-details h1 {
                 font-size: 1.5rem;
             }
 
@@ -341,55 +339,52 @@
             <ul class="nav-links">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="filmes.html">Filmes</a></li>
-                <li><a href="series.html">Séries</a></li>
-                <li><a href="animes.html" class="active">Animes</a></li>
+                <li><a href="series.html" class="active">Séries</a></li>
+                <li><a href="animes.html">Animes</a></li>
             </ul>
         </nav>
     </header>
 
     <main class="container">
-        <a href="animes.html" class="back-button">
-            ← Voltar aos Animes
+        <a href="series.html" class="back-button" aria-label="Voltar às séries">
+            ← Voltar às Séries
         </a>
 
         <div class="loading" id="loading">
             <div class="spinner"></div>
         </div>
 
-        <div id="animeContent" style="display: none;">
-            <div class="anime-header">
-                <div class="anime-info">
-                    <div class="anime-poster">
-                        <img id="animePoster" alt="Poster do anime">
+        <div id="serieContent" style="display: none;">
+            <div class="serie-header">
+                <div class="serie-info">
+                    <div class="serie-poster">
+                        <img id="seriePoster" alt="Poster da série" />
                     </div>
-                                            <div class="anime-details">
-                        <h1 id="animeTitle"></h1>
-                        <div class="anime-meta" id="animeMeta"></div>
-                        <div class="anime-description">
-                            <p>Explore todas as temporadas deste incrível anime. Selecione uma temporada abaixo para ver os episódios disponíveis.</p>
+                    <div class="serie-details">
+                        <h1 id="serieTitle"></h1>
+                        <div class="serie-meta" id="serieMeta"></div>
+                        <div class="serie-description">
+                            <p>Explore todas as temporadas desta incrível série. Selecione uma temporada abaixo para ver os episódios disponíveis.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="seasons-section">
-                <h2 class="section-title">🎌 Temporadas Disponíveis</h2>
+                <h2 class="section-title">📺 Temporadas Disponíveis</h2>
                 <div class="seasons-grid" id="seasonsGrid"></div>
             </div>
         </div>
 
         <div class="error-message" id="errorMessage" style="display: none;">
             <h2>❌ Erro</h2>
-            <p>Não foi possível carregar os detalhes do anime.</p>
+            <p>Não foi possível carregar os detalhes da série.</p>
         </div>
     </main>
 
     <script>
-        let currentAnime = null;
-
         function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
         }
 
         // Fechar menu ao clicar em um link em dispositivos móveis
@@ -399,162 +394,98 @@
             });
         });
 
-        function getAnimeIdFromUrl() {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get('id');
+        function getSerieIdFromUrl() {
+            return new URLSearchParams(window.location.search).get('id');
         }
 
-        async function loadAnimeDetails() {
-            const animeId = getAnimeIdFromUrl();
-            
-            if (!animeId) {
+        async function carregarInfoSerie(serieId) {
+            try {
+                const response = await fetch(`data/series/${serieId}/info.json`);
+                if (!response.ok) {
+                    throw new Error(`Não foi possível carregar info.json da série ${serieId}`);
+                }
+                return await response.json();
+            } catch (error) {
+                console.error("Erro ao carregar info da série:", error);
+                return null;
+            }
+        }
+
+        async function loadSerieDetails() {
+            const serieId = getSerieIdFromUrl();
+            if (!serieId) {
                 showError();
                 return;
             }
 
-            try {
-                // Simula o carregamento dos detalhes do anime
-                // Em uma implementação real, você carregaria de data/animes/{animeId}/info.json
-                const sampleAnimes = {
-                    'anime1': {
-                        id: "anime1",
-                        tipo: "anime",
-                        titulo: "Attack on Titan",
-                        capa: "img/capas/animes/capa_anime_aot.jpg",
-                        dataAdicao: "2025-08-04",
-                        temporadas: [
-                            { titulo: "Temporada 1", arquivo: "temporada1.json" },
-                            { titulo: "Temporada 2", arquivo: "temporada2.json" },
-                            { titulo: "Temporada 3", arquivo: "temporada3.json" },
-                            { titulo: "Temporada 4", arquivo: "temporada4.json" }
-                        ]
-                    },
-                    'anime2': {
-                        id: "anime2",
-                        tipo: "anime",
-                        titulo: "One Piece",
-                        capa: "img/capas/animes/capa_anime_onepiece.jpg",
-                        dataAdicao: "2025-08-03",
-                        temporadas: [
-                            { titulo: "Saga East Blue", arquivo: "saga1.json" },
-                            { titulo: "Saga Alabasta", arquivo: "saga2.json" },
-                            { titulo: "Saga Water 7", arquivo: "saga3.json" },
-                            { titulo: "Saga Marineford", arquivo: "saga4.json" }
-                        ]
-                    },
-                    'anime3': {
-                        id: "anime3",
-                        tipo: "anime",
-                        titulo: "Demon Slayer",
-                        capa: "img/capas/animes/capa_anime_kimetsu.jpg",
-                        dataAdicao: "2025-08-02",
-                        temporadas: [
-                            { titulo: "Temporada 1", arquivo: "temporada1.json" },
-                            { titulo: "Temporada 2", arquivo: "temporada2.json" },
-                            { titulo: "Temporada 3", arquivo: "temporada3.json" }
-                        ]
-                    },
-                    'anime4': {
-                        id: "anime4",
-                        tipo: "anime",
-                        titulo: "Naruto",
-                        capa: "img/capas/animes/capa_anime_naruto.jpg",
-                        dataAdicao: "2025-08-01",
-                        temporadas: [
-                            { titulo: "Naruto Clássico", arquivo: "classico.json" },
-                            { titulo: "Naruto Shippuden", arquivo: "shippuden.json" },
-                            { titulo: "Boruto", arquivo: "boruto.json" }
-                        ]
-                    },
-                    'anime5': {
-                        id: "anime5",
-                        tipo: "anime",
-                        titulo: "Jujutsu Kaisen",
-                        capa: "img/capas/animes/capa_anime_jjk.jpg",
-                        dataAdicao: "2025-07-31",
-                        temporadas: [
-                            { titulo: "Temporada 1", arquivo: "temporada1.json" },
-                            { titulo: "Temporada 2", arquivo: "temporada2.json" }
-                        ]
-                    }
-                };
-
-                currentAnime = sampleAnimes[animeId];
-                
-                if (!currentAnime) {
-                    showError();
-                    return;
-                }
-
-                displayAnimeDetails();
-                
-            } catch (error) {
-                console.error('Erro ao carregar detalhes do anime:', error);
+            const currentSerie = await carregarInfoSerie(serieId);
+            if (!currentSerie) {
                 showError();
+                return;
             }
+
+            displaySerieDetails(currentSerie);
         }
 
-        function displayAnimeDetails() {
-            const loading = document.getElementById('loading');
-            const content = document.getElementById('animeContent');
-            
-            loading.style.display = 'none';
+        function displaySerieDetails(serie) {
+            document.getElementById('loading').style.display = 'none';
+            const content = document.getElementById('serieContent');
             content.style.display = 'block';
 
-            // Atualizar título da página
-            document.title = `${currentAnime.titulo} - StreamFlix`;
+            document.title = `${serie.titulo} - StreamFlix`;
 
-            // Preencher informações do anime
-            document.getElementById('animePoster').src = currentAnime.capa;
-            document.getElementById('animePoster').alt = `Poster de ${currentAnime.titulo}`;
-            document.getElementById('animeTitle').textContent = currentAnime.titulo;
+            const poster = document.getElementById('seriePoster');
+            poster.src = serie.capa;
+            poster.alt = `Poster de ${serie.titulo}`;
 
-            // Meta informações
-            const meta = document.getElementById('animeMeta');
+            document.getElementById('serieTitle').textContent = serie.titulo;
+
+            const meta = document.getElementById('serieMeta');
             const formatDate = (dateStr) => {
                 const date = new Date(dateStr);
                 return date.toLocaleDateString('pt-BR');
             };
 
-            const seasonCount = currentAnime.temporadas.length;
-            const totalEpisodes = seasonCount * 12; // Estimativa de 12 episódios por temporada para animes
+            const seasonCount = serie.temporadas.length;
+            const totalEpisodes = serie.temporadas.reduce((acc, temporada) => {
+                return acc + (temporada.episodios ? temporada.episodios.length : 0);
+            }, 0);
 
             meta.innerHTML = `
                 <div class="meta-item">${seasonCount} Temporada${seasonCount > 1 ? 's' : ''}</div>
-                <div class="meta-item">~${totalEpisodes} Episódios</div>
-                <div class="meta-item">Dublado/Legendado</div>
-                <div class="meta-item">Adicionado em ${formatDate(currentAnime.dataAdicao)}</div>
+                <div class="meta-item">${totalEpisodes} Episódio${totalEpisodes !== 1 ? 's' : ''}</div>
+                <div class="meta-item">Adicionado em ${formatDate(serie.dataAdicao)}</div>
             `;
 
-            // Exibir temporadas
-            displaySeasons();
+            displaySeasons(serie);
         }
 
-        function displaySeasons() {
+
+
+        function displaySeasons(serie) {
             const grid = document.getElementById('seasonsGrid');
-            
-            grid.innerHTML = currentAnime.temporadas.map((temporada, index) => {
+            grid.innerHTML = serie.temporadas.map((temporada, index) => {
                 const seasonNumber = index + 1;
-                const estimatedEpisodes = seasonNumber === 1 ? 12 : Math.floor(Math.random() * 5) + 10; // Episódios aleatórios para exemplo
-                
+                const episodeCount = temporada.episodios ? temporada.episodios.length : 0;
+
                 return `
-                    <div class="season-card" onclick="openSeason('${currentAnime.id}', '${temporada.arquivo}', ${seasonNumber})">
+                    <div class="season-card" onclick="openSeason('${serie.id}', '${temporada.arquivo}', ${seasonNumber})" role="button" tabindex="0" onkeypress="if(event.key==='Enter') openSeason('${serie.id}', '${temporada.arquivo}', ${seasonNumber})">
                         <div class="season-header">
                             <div class="season-title">${temporada.titulo}</div>
-                            <div class="season-episodes">${estimatedEpisodes} episódios</div>
+                            <div class="season-episodes">${episodeCount} episódio${episodeCount !== 1 ? 's' : ''}</div>
                         </div>
                         <div class="season-description">
-                            Assista todos os episódios da ${temporada.titulo.toLowerCase()} de ${currentAnime.titulo}.
+                            Assista todos os episódios da ${temporada.titulo.toLowerCase()} de ${serie.titulo}.
                         </div>
-                        <button class="watch-button">Assistir Temporada</button>
+                        <button class="watch-button" type="button">Assistir Temporada</button>
                     </div>
                 `;
             }).join('');
         }
 
-        function openSeason(animeId, seasonFile, seasonNumber) {
-            // Redireciona para a página de episódios da temporada (reutilizando a mesma página das séries)
-            window.location.href = `temporada-episodios.html?serie=${animeId}&temporada=${seasonFile}&numero=${seasonNumber}&tipo=anime`;
+
+        function openSeason(serieId, seasonFile, seasonNumber) {
+            window.location.href = `temporada-episodios.html?serie=${serieId}&temporada=${seasonFile}&numero=${seasonNumber}`;
         }
 
         function showError() {
@@ -562,8 +493,7 @@
             document.getElementById('errorMessage').style.display = 'block';
         }
 
-        // Carregar detalhes quando a página carregar
-        document.addEventListener('DOMContentLoaded', loadAnimeDetails);
+        document.addEventListener('DOMContentLoaded', loadSerieDetails);
     </script>
 </body>
 </html>

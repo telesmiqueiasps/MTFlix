@@ -1,0 +1,64 @@
+{
+    "episodios": [
+        {
+            "id": "serie1-t1-ep1",
+            "nome": "Episódio 1",
+            "link": "https://drive.google.com/file/d/1l_KqYnCRNPPHOiKPkltLNhsNGXjBHU9_/preview",
+            "descricao": "Descrição do episódio 1"
+        },
+        {
+            "id": "serie1-t1-ep2",
+            "nome": "Episódio 2",
+            "link": "https://drive.google.com/file/d/1arGgu7fMt-T67aBrkPJzUs6R0-qEnxmz/preview",
+            "descricao": "Descrição do episódio 2"
+        },
+        {
+            "id": "serie1-t1-ep3",
+            "nome": "Episódio 3",
+            "link": "https://drive.google.com/file/d/1jkaD3l__9e_QjA00t7BxuPWA4_wktQFN/preview",
+            "descricao": "Descrição do episódio 3"
+        },
+        {
+            "id": "serie1-t1-ep4",
+            "nome": "Episódio 4",
+            "link": "https://drive.google.com/file/d/1VoF_5QcSJDjb-qym5vfZAVeaXPyDTm0Z/preview",
+            "descricao": "Descrição do episódio 4"
+        },
+        {
+            "id": "serie1-t1-ep5",
+            "nome": "Episódio 5",
+            "link": "https://drive.google.com/file/d/1Uh9Hiw-AGllEW8fBZ6idPZ9XhJYN5MN6/preview",
+            "descricao": "Descrição do episódio 5"
+        },
+        {
+            "id": "serie1-t1-ep6",
+            "nome": "Episódio 6",
+            "link": "https://drive.google.com/file/d/1i1I3m2MP4cQTslmdp8Iw4fgMi5XhbSqO/preview",
+            "descricao": "Descrição do episódio 6"
+        },
+        {
+            "id": "serie1-t1-ep7",
+            "nome": "Episódio 7",
+            "link": "https://drive.google.com/file/d/19jzQbfrDnltPtOW1lqeQ9Bwi08LCHltP/preview",
+            "descricao": "Descrição do episódio 7"
+        },
+        {
+            "id": "serie1-t1-ep8",
+            "nome": "Episódio 8",
+            "link": "https://drive.google.com/file/d/1uAqBninufHIAl0w_HyNHMCL78DIAMlot/preview",
+            "descricao": "Descrição do episódio 8"
+        },
+        {
+            "id": "serie1-t1-ep9",
+            "nome": "Episódio 9",
+            "link": "https://drive.google.com/file/d/1sh24Bkw_4c5IXeERS9r5ORRlgma9YpIS/preview",
+            "descricao": "Descrição do episódio 9"
+        },
+        {
+            "id": "serie1-t1-ep10",
+            "nome": "Episódio 10",
+            "link": "https://drive.google.com/file/d/1UD0SePXTBNp3ubiU4OhrGrvphNdmH1fU/preview",
+            "descricao": "Descrição do episódio 10"
+        }
+    ]
+}

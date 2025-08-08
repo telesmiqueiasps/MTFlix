@@ -1,0 +1,52 @@
+{
+    "episodios": [
+        {
+            "id": "serie1-t2-ep1",
+            "nome": "Episódio 1",
+            "link": "https://drive.google.com/file/d/1J1izYDto_pvD-WJRNku7Me-I6PuUqwF-/preview",
+            "descricao": "Descrição do episódio 1"
+        },
+        {
+            "id": "serie1-t2-ep2",
+            "nome": "Episódio 2",
+            "link": "https://https://drive.google.com/file/d/178mnGNBrhP1sskOGvjCBNGyCt2xuSK_2/preview",
+            "descricao": "Descrição do episódio 2"
+        },
+        {
+            "id": "serie1-t2-ep3",
+            "nome": "Episódio 3",
+            "link": "https://drive.google.com/file/d/1YgXitbsi9Ysef2l5c9UpP6a4DpEktQJE/preview",
+            "descricao": "Descrição do episódio 3"
+        },
+        {
+            "id": "serie1-t2-ep4",
+            "nome": "Episódio 4",
+            "link": "https://drive.google.com/file/d/1yWMs53Fm5090ILgpmiMBPuP2dZ-iBzJh/preview",
+            "descricao": "Descrição do episódio 4"
+        },
+        {
+            "id": "serie1-t2-ep5",
+            "nome": "Episódio 5",
+            "link": "https://drive.google.com/file/d/1ftgIzYipBBUiG8IHAoispFHL2t_FbxMK/preview",
+            "descricao": "Descrição do episódio 5"
+        },
+        {
+            "id": "serie1-t2-ep6",
+            "nome": "Episódio 6",
+            "link": "https://drive.google.com/file/d/18TJRLQiZn6rMzTDHucIW6NUaiLAPuZEX/preview",
+            "descricao": "Descrição do episódio 6"
+        },
+        {
+            "id": "serie1-t2-ep7",
+            "nome": "Episódio 7",
+            "link": "https://drive.google.com/file/d/15P85GuIy-NXFN4WHcu4qNLVJ5i4LZOAA/preview",
+            "descricao": "Descrição do episódio 7"
+        },
+        {
+            "id": "serie1-t2-ep8",
+            "nome": "Episódio 8",
+            "link": "https://drive.google.com/file/d/1xkxRnoAy38LK6RCtU6cvetuMLxPgibjG/preview",
+            "descricao": "Descrição do episódio 8"
+        }
+    ]
+}

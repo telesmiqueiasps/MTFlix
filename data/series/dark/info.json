@@ -1,0 +1,11 @@
+{
+  "id": "dark",
+  "titulo": "Dark",
+  "tipo": "serie",
+  "capa": "img/capas/series/capa_serie_dark.jpg",
+  "dataAdicao": "2025-08-04",
+  "temporadas": [
+    { "titulo": "Temporada 1", "arquivo": "temporada1.json" },
+    { "titulo": "Temporada 2", "arquivo": "temporada2.json" }
+  ]
+}

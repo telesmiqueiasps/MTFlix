@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Episódios - StreamFlix</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .back-button {
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ecdc4;
+            border: 1px solid #4ecdc4;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin: 2rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: rgba(78, 205, 196, 0.3);
+            transform: translateX(-5px);
+        }
+
+        .season-header {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .season-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #4ecdc4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .season-subtitle {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .season-meta {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ecdc4;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(78, 205, 196, 0.3);
+        }
+
+        .episodes-section {
+            margin-top: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #4ecdc4;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 30px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 2px;
+        }
+
+        .episodes-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .episode-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .episode-card:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .episode-number {
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .episode-info {
+            flex: 1;
+        }
+
+        .episode-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .episode-description {
+            color: #ccc;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .play-button {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+            color: white;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(78, 205, 196, 0.4);
+        }
+
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #4ecdc4;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 3rem;
+            color: #ff6b6b;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                padding: 1rem 2rem;
+                width: 200px;
+                text-align: center;
+            }
+
+            .season-title {
+                font-size: 2rem;
+            }
+
+            .season-subtitle {
+                font-size: 1rem;
+            }
+
+            .episode-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .episode-info {
+                order: 2;
+            }
+
+            .play-button {
+                order: 3;
+            }
+
+            .episode-number {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .season-header {
+                padding: 1rem;
+            }
+            
+            .season-title {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .episode-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">StreamFlix</div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="filmes.html">Filmes</a></li>
+                <li><a href="series.html" class="active">Séries</a></li>
+                <li><a href="animes.html">Animes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <a href="#" class="back-button" id="backButton">
+            ← Voltar à Série
+        </a>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+        </div>
+
+        <div id="seasonContent" style="display: none;">
+            <div class="season-header">
+                <div class="season-title" id="seasonTitle"></div>
+                <div class="season-subtitle" id="seasonSubtitle"></div>
+                <div class="season-meta" id="seasonMeta"></div>
+            </div>
+
+            <div class="episodes-section">
+                <h2 class="section-title">🎬 Episódios</h2>
+                <div class="episodes-list" id="episodesList"></div>
+            </div>
+        </div>
+
+        <div class="error-message" id="errorMessage" style="display: none;">
+            <h2>❌ Erro</h2>
+            <p>Não foi possível carregar os episódios da temporada.</p>
+        </div>
+    </main>
+
+    <script>
+        let currentSeason = null;
+        let serieInfo = null;
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Fechar menu ao clicar em um link em dispositivos móveis
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        function getParamsFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return {
+                serieId: urlParams.get('serie'),
+                seasonFile: urlParams.get('temporada'),
+                seasonNumber: urlParams.get('numero')
+            };
+        }
+
+        async function loadSeasonEpisodes() {
+            const params = getParamsFromUrl();
+            
+            if (!params.serieId || !params.seasonFile || !params.seasonNumber) {
+                showError();
+                return;
+            }
+
+            try {
+                // Configurar botão de voltar
+                document.getElementById('backButton').href = `serie-detalhes.html?id=${params.serieId}`;
+
+                // Carregar info.json da série
+                const serieResponse = await fetch(`data/series/${params.serieId}/info.json`);
+                if (!serieResponse.ok) throw new Error('Não foi possível carregar info.json da série');
+                serieInfo = await serieResponse.json();
+
+                // Carregar JSON da temporada
+                const seasonResponse = await fetch(`data/series/${params.serieId}/${params.seasonFile}`);
+                if (!seasonResponse.ok) throw new Error('Não foi possível carregar o arquivo da temporada');
+                const seasonData = await seasonResponse.json();
+
+                currentSeason = {
+                    serieTitle: serieInfo.titulo || 'Título Indisponível',
+                    seasonNumber: parseInt(params.seasonNumber),
+                    episodes: seasonData.episodios || []
+                };
+
+                displaySeasonDetails();
+                
+            } catch (error) {
+                console.error('Erro ao carregar episódios da temporada:', error);
+                showError();
+            }
+        }
+
+        function displaySeasonDetails() {
+            const loading = document.getElementById('loading');
+            const content = document.getElementById('seasonContent');
+            
+            loading.style.display = 'none';
+            content.style.display = 'block';
+
+            // Atualizar título da página
+            document.title = `${currentSeason.serieTitle} - Temporada ${currentSeason.seasonNumber} - StreamFlix`;
+
+            // Preencher informações da temporada
+            document.getElementById('seasonTitle').textContent = `Temporada ${currentSeason.seasonNumber}`;
+            document.getElementById('seasonSubtitle').textContent = currentSeason.serieTitle;
+
+            // Meta informações (ajuste se quiser dados dinâmicos)
+            const meta = document.getElementById('seasonMeta');
+            meta.innerHTML = `
+                <div class="meta-item">${currentSeason.episodes.length} Episódio${currentSeason.episodes.length !== 1 ? 's' : ''}</div>
+                <div class="meta-item">Dublado/Legendado</div>
+                <div class="meta-item">HD Quality</div>
+            `;
+
+            // Exibir episódios
+            displayEpisodes();
+        }
+
+        function displayEpisodes() {
+            const list = document.getElementById('episodesList');
+            
+            if (!currentSeason.episodes.length) {
+                list.innerHTML = `<p>Não há episódios disponíveis para esta temporada.</p>`;
+                return;
+            }
+
+            list.innerHTML = currentSeason.episodes.map((episode, index) => {
+                return `
+                    <div class="episode-card" onclick="playEpisode('${episode.link}', '${episode.nome}')">
+                        <div class="episode-number">${index + 1}</div>
+                        <div class="episode-info">
+                            <div class="episode-title">${episode.nome}</div>
+                            <div class="episode-description">${episode.descricao}</div>
+                        </div>
+                        <button class="play-button" onclick="event.stopPropagation(); playEpisode('${episode.link}', '${episode.nome}')">▶</button>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function playEpisode(link, episodeName) {
+            window.open(link, '_blank');
+        }
+
+        function showError() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'block';
+        }
+
+        document.addEventListener('DOMContentLoaded', loadSeasonEpisodes);
+
+    </script>
+</body>
+</html>

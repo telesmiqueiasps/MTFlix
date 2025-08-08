@@ -1,65 +1,71 @@
-function carregarCatalogo(url) {
+function carregarCatalogo(pastas) {
     const container = document.getElementById("catalogo");
     const searchInput = document.getElementById("search");
 
-    fetch(url)
-        .then(res => res.json())
-        .then(lista => {
-            function renderCatalogo(filtro = "") {
-                container.innerHTML = "";
-                lista
-                    .filter(item => item.titulo.toLowerCase().includes(filtro.toLowerCase()))
-                    .forEach(item => {
-                        const card = document.createElement("div");
-                        card.classList.add("card");
+    const promessas = pastas.map(pasta =>
+        fetch(`data/series/${pasta}/info.json`)
+            .then(res => res.json())
+            .then(info => ({
+                id: pasta,
+                tipo: info.tipo || "serie",
+                titulo: info.titulo,
+                capa: `data/series/${pasta}/${info.capa}`,
+                temporadas: info.temporadas || []
+            }))
+    );
 
-                        const img = document.createElement("img");
-                        img.src = item.capa;
-                        img.alt = item.titulo;
+    Promise.all(promessas).then(lista => {
+        function renderCatalogo(filtro = "") {
+            container.innerHTML = "";
+            lista
+                .filter(item => item.titulo.toLowerCase().includes(filtro.toLowerCase()))
+                .forEach(item => {
+                    const card = document.createElement("div");
+                    card.classList.add("card");
 
-                        const titulo = document.createElement("h3");
-                        titulo.textContent = item.titulo;
+                    const img = document.createElement("img");
+                    img.src = item.capa;
+                    img.alt = item.titulo;
 
-                        const btnAssistir = document.createElement("button");
+                    const titulo = document.createElement("h3");
+                    titulo.textContent = item.titulo;
 
-                        // Ação conforme tipo
-                        if (item.tipo === "serie") {
-                            btnAssistir.textContent = "Ver episódios";
-                            btnAssistir.addEventListener("click", () => {
-                                window.location.href = `serie.html?id=${item.id}`;
-                            });
-                        } 
-                        else if (item.tipo === "anime") {
-                            btnAssistir.textContent = "Ver episódios";
-                            btnAssistir.addEventListener("click", () => {
-                                window.location.href = `anime.html?id=${item.id}`;
-                            });
-                        } 
-                        else if (item.tipo === "filme") {
-                            let assistidos = JSON.parse(localStorage.getItem("assistidos")) || [];
-                            btnAssistir.textContent = assistidos.includes(item.id) ? "Assistido ✅" : "Assistir";
-                            if (assistidos.includes(item.id)) btnAssistir.classList.add("watched");
+                    const btnAssistir = document.createElement("button");
 
-                            btnAssistir.addEventListener("click", () => {
-                                window.open(item.link, "_blank");
-                                toggleAssistido("filme", item.id, btnAssistir);
-                            });
-                        }
+                    if (item.tipo === "filme") {
+                        let assistidos = JSON.parse(localStorage.getItem("assistidos")) || [];
+                        const assistido = assistidos.includes(item.id);
+                        btnAssistir.textContent = assistido ? "Assistido ✅" : "Assistir";
+                        if (assistido) btnAssistir.classList.add("watched");
 
-                        card.appendChild(img);
-                        card.appendChild(titulo);
-                        card.appendChild(btnAssistir);
-                        container.appendChild(card);
-                    });
-            }
+                        btnAssistir.addEventListener("click", () => {
+                            window.open(item.link, "_blank");
+                            toggleAssistido("filme", item.id, btnAssistir);
+                        });
+                    } else {
+                        // Série ou anime
+                        btnAssistir.textContent = "Ver episódios";
+                        btnAssistir.addEventListener("click", () => {
+                            const pagina = item.tipo === "anime" ? "anime.html" : "serie.html";
+                            window.location.href = `${pagina}?id=${item.id}`;
+                        });
+                    }
 
-            searchInput?.addEventListener("input", e => {
-                renderCatalogo(e.target.value);
-            });
+                    card.appendChild(img);
+                    card.appendChild(titulo);
+                    card.appendChild(btnAssistir);
+                    container.appendChild(card);
+                });
+        }
 
-            renderCatalogo();
+        searchInput?.addEventListener("input", e => {
+            renderCatalogo(e.target.value);
         });
+
+        renderCatalogo();
+    });
 }
+
 
 function carregarUltimosAdicionados(urls) {
     const container = document.getElementById("catalogo");

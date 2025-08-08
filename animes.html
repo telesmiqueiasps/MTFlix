@@ -1,29 +1,585 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Animes</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Animes - StreamFlix</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 3rem 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .search-filter {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+        }
+
+        .search-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 154, 158, 0.5);
+        }
+
+        .filter-select {
+            padding: 12px;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .seasons-info {
+            background: rgba(255, 154, 158, 0.9);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .seasons-info {
+            transform: scale(1);
+        }
+
+        .view-button {
+            background: rgba(255, 154, 158, 0.9);
+            border: none;
+            border-radius: 25px;
+            padding: 10px 20px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transform: scale(0);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .view-button {
+            transform: scale(1);
+        }
+
+        .card-content {
+            padding: 1rem;
+        }
+
+        .card-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-date {
+            color: #aaa;
+            font-size: 0.8rem;
+        }
+
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #ff9a9e;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #aaa;
+        }
+
+        .results-count {
+            margin: 1rem 0;
+            color: #ff9a9e;
+            font-weight: bold;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links a {
+                padding: 1rem 2rem;
+                width: 200px;
+                text-align: center;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .search-container {
+                flex-direction: column;
+            }
+
+            .search-input {
+                min-width: 100%;
+            }
+
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+
+            .card-image {
+                height: 220px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .card-image {
+                height: 200px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav>
-            <h1>Animes</h1>
-            <ul>
+        <nav class="container">
+            <div class="logo">StreamFlix</div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="filmes.html">Filmes</a></li>
                 <li><a href="series.html">Séries</a></li>
+                <li><a href="animes.html" class="active">Animes</a></li>
             </ul>
-            <input type="text" id="search" placeholder="Pesquisar...">
         </nav>
     </header>
 
-    <main id="catalogo"></main>
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>🎌 Catálogo de Animes</h1>
+            </div>
+        </section>
 
-    <script src="script.js"></script>
+        <div class="container">
+            <div class="search-filter">
+                <div class="search-container">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Pesquisar animes...">
+                    <select class="filter-select" id="sortSelect">
+                        <option value="newest">Mais recentes</option>
+                        <option value="oldest">Mais antigos</option>
+                        <option value="title">Ordem alfabética</option>
+                    </select>
+                </div>
+                <div class="results-count" id="resultsCount"></div>
+            </div>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+            </div>
+
+            <div class="grid" id="animesGrid"></div>
+            
+            <div class="no-results" id="noResults" style="display: none;">
+                <h2>🔍</h2>
+                <p>Nenhum anime encontrado</p>
+            </div>
+        </div>
+    </main>
+
     <script>
-        carregarCatalogo("data/catalog-animes.json");
+        let allAnimes = [];
+        let filteredAnimes = [];
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Fechar menu ao clicar em um link em dispositivos móveis
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        async function loadAnimes() {
+            try {
+                // Simula o carregamento dos animes das pastas
+                // Em uma implementação real, você precisaria de um endpoint que liste as pastas
+                const sampleAnimes = [
+                    {
+                        id: "anime1",
+                        tipo: "anime",
+                        titulo: "Attack on Titan",
+                        capa: "img/capas/animes/capa_anime_aot.jpg",
+                        dataAdicao: "2025-08-04",
+                        temporadas: [
+                            { titulo: "Temporada 1", arquivo: "temporada1.json" },
+                            { titulo: "Temporada 2", arquivo: "temporada2.json" },
+                            { titulo: "Temporada 3", arquivo: "temporada3.json" },
+                            { titulo: "Temporada 4", arquivo: "temporada4.json" }
+                        ]
+                    },
+                    {
+                        id: "anime2",
+                        tipo: "anime",
+                        titulo: "One Piece",
+                        capa: "img/capas/animes/capa_anime_onepiece.jpg",
+                        dataAdicao: "2025-08-03",
+                        temporadas: [
+                            { titulo: "Saga East Blue", arquivo: "saga1.json" },
+                            { titulo: "Saga Alabasta", arquivo: "saga2.json" },
+                            { titulo: "Saga Water 7", arquivo: "saga3.json" },
+                            { titulo: "Saga Marineford", arquivo: "saga4.json" }
+                        ]
+                    },
+                    {
+                        id: "anime3",
+                        tipo: "anime",
+                        titulo: "Demon Slayer",
+                        capa: "img/capas/animes/capa_anime_kimetsu.jpg",
+                        dataAdicao: "2025-08-02",
+                        temporadas: [
+                            { titulo: "Temporada 1", arquivo: "temporada1.json" },
+                            { titulo: "Temporada 2", arquivo: "temporada2.json" },
+                            { titulo: "Temporada 3", arquivo: "temporada3.json" }
+                        ]
+                    },
+                    {
+                        id: "anime4",
+                        tipo: "anime",
+                        titulo: "Naruto",
+                        capa: "img/capas/animes/capa_anime_naruto.jpg",
+                        dataAdicao: "2025-08-01",
+                        temporadas: [
+                            { titulo: "Naruto Clássico", arquivo: "classico.json" },
+                            { titulo: "Naruto Shippuden", arquivo: "shippuden.json" },
+                            { titulo: "Boruto", arquivo: "boruto.json" }
+                        ]
+                    },
+                    {
+                        id: "anime5",
+                        tipo: "anime",
+                        titulo: "Jujutsu Kaisen",
+                        capa: "img/capas/animes/capa_anime_jjk.jpg",
+                        dataAdicao: "2025-07-31",
+                        temporadas: [
+                            { titulo: "Temporada 1", arquivo: "temporada1.json" },
+                            { titulo: "Temporada 2", arquivo: "temporada2.json" }
+                        ]
+                    }
+                ];
+
+                allAnimes = sampleAnimes;
+                filteredAnimes = [...allAnimes];
+                
+                displayAnimes();
+                updateResultsCount();
+                
+                document.getElementById('loading').style.display = 'none';
+            } catch (error) {
+                console.error('Erro ao carregar animes:', error);
+                document.getElementById('loading').innerHTML = '<p>Erro ao carregar animes</p>';
+            }
+        }
+
+        function displayAnimes() {
+            const grid = document.getElementById('animesGrid');
+            const noResults = document.getElementById('noResults');
+            
+            if (filteredAnimes.length === 0) {
+                grid.style.display = 'none';
+                noResults.style.display = 'block';
+                return;
+            }
+            
+            grid.style.display = 'grid';
+            noResults.style.display = 'none';
+            
+            grid.innerHTML = filteredAnimes.map(anime => createAnimeCard(anime)).join('');
+        }
+
+        function createAnimeCard(anime) {
+            const formatDate = (dateStr) => {
+                const date = new Date(dateStr);
+                return date.toLocaleDateString('pt-BR');
+            };
+
+            const seasonCount = anime.temporadas ? anime.temporadas.length : 0;
+            const seasonText = seasonCount === 1 ? '1 Temporada' : `${seasonCount} Temporadas`;
+            
+            return `
+                <div class="card" onclick="openAnime('${anime.id}')">
+                    <div class="card-image">
+                        <img src="${anime.capa}" alt="${anime.titulo}" onerror="this.style.display='none'; this.parentElement.innerHTML='🎌'">
+                        <div class="card-overlay">
+                            <div class="seasons-info">${seasonText}</div>
+                            <button class="view-button">Ver Anime</button>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-title">${anime.titulo}</div>
+                        <div class="card-date">${formatDate(anime.dataAdicao)}</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function openAnime(animeId) {
+            window.location.href = `anime-detalhes.html?id=${animeId}`;
+        }
+
+        function searchAnimes() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            
+            filteredAnimes = allAnimes.filter(anime => 
+                anime.titulo.toLowerCase().includes(searchTerm)
+            );
+            
+            sortAnimes();
+        }
+
+        function sortAnimes() {
+            const sortType = document.getElementById('sortSelect').value;
+            
+            switch (sortType) {
+                case 'newest':
+                    filteredAnimes.sort((a, b) => new Date(b.dataAdicao) - new Date(a.dataAdicao));
+                    break;
+                case 'oldest':
+                    filteredAnimes.sort((a, b) => new Date(a.dataAdicao) - new Date(b.dataAdicao));
+                    break;
+                case 'title':
+                    filteredAnimes.sort((a, b) => a.titulo.localeCompare(b.titulo));
+                    break;
+            }
+            
+            displayAnimes();
+            updateResultsCount();
+        }
+
+        function updateResultsCount() {
+            const count = filteredAnimes.length;
+            const total = allAnimes.length;
+            const resultsCount = document.getElementById('resultsCount');
+            
+            if (count === total) {
+                resultsCount.textContent = `${total} anime${total !== 1 ? 's' : ''} encontrado${total !== 1 ? 's' : ''}`;
+            } else {
+                resultsCount.textContent = `${count} de ${total} anime${total !== 1 ? 's' : ''} encontrado${count !== 1 ? 's' : ''}`;
+            }
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', searchAnimes);
+        document.getElementById('sortSelect').addEventListener('change', sortAnimes);
+
+        // Carregar animes quando a página carregar
+        document.addEventListener('DOMContentLoaded', loadAnimes);
     </script>
 </body>
 </html>

@@ -21,21 +21,153 @@
                         "nome": "Episódio 2",
                         "link": "https://mega.nz/file/ID_EP2",
                         "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
-                    }
-                ]
-            },
-            {
-                "id": "t2",
-                "titulo": "Temporada 2",
-                "episodios": [
+                    },
                     {
-                        "id": "anime1-t2-ep1",
-                        "nome": "Episódio 1",
-                        "link": "https://drive.google.com/file/d/ID_EP1T2/view",
-                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t2-ep1.jpg"
+                        "id": "anime1-t1-ep3",
+                        "nome": "Episódio 3",
+                        "link": "https://mega.nz/file/ID_EP3",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep4",
+                        "nome": "Episódio 4",
+                        "link": "https://mega.nz/file/ID_EP4",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep5",
+                        "nome": "Episódio 5",
+                        "link": "https://mega.nz/file/ID_EP5",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep6",
+                        "nome": "Episódio 6",
+                        "link": "https://mega.nz/file/ID_EP6",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep7",
+                        "nome": "Episódio 7",
+                        "link": "https://mega.nz/file/ID_EP7",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep8",
+                        "nome": "Episódio 8",
+                        "link": "https://mega.nz/file/ID_EP8",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep9",
+                        "nome": "Episódio 9",
+                        "link": "https://mega.nz/file/ID_EP9",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep10",
+                        "nome": "Episódio 10",
+                        "link": "https://mega.nz/file/ID_EP10",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep11",
+                        "nome": "Episódio 11",
+                        "link": "https://mega.nz/file/ID_EP11",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep12",
+                        "nome": "Episódio 12",
+                        "link": "https://mega.nz/file/ID_EP12",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep13",
+                        "nome": "Episódio 13",
+                        "link": "https://mega.nz/file/ID_EP13",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep14",
+                        "nome": "Episódio 14",
+                        "link": "https://mega.nz/file/ID_EP14",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep15",
+                        "nome": "Episódio 15",
+                        "link": "https://mega.nz/file/ID_EP15",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep16",
+                        "nome": "Episódio 16",
+                        "link": "https://mega.nz/file/ID_EP16",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep17",
+                        "nome": "Episódio 17",
+                        "link": "https://mega.nz/file/ID_EP17",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep18",
+                        "nome": "Episódio 18",
+                        "link": "https://mega.nz/file/ID_EP18",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep19",
+                        "nome": "Episódio 19",
+                        "link": "https://mega.nz/file/ID_EP19",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep20",
+                        "nome": "Episódio 20",
+                        "link": "https://mega.nz/file/ID_EP20",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep21",
+                        "nome": "Episódio 21",
+                        "link": "https://mega.nz/file/ID_EP21",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep22",
+                        "nome": "Episódio 22",
+                        "link": "https://mega.nz/file/ID_EP22",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep23",
+                        "nome": "Episódio 23",
+                        "link": "https://mega.nz/file/ID_EP23",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep24",
+                        "nome": "Episódio 24",
+                        "link": "https://mega.nz/file/ID_EP24",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep25",
+                        "nome": "Episódio 25",
+                        "link": "https://mega.nz/file/ID_EP25",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
+                    },
+                    {
+                        "id": "anime1-t1-ep26",
+                        "nome": "Episódio 26",
+                        "link": "https://mega.nz/file/ID_EP26",
+                        "thumbnail": "img/thumbnails/animes/thumb_anime1-t1.jpg"
                     }
                 ]
-            }
+            }  
         ]
     }
 ]

@@ -1,29 +1,240 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filmes</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Filmes - StreamFlix</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo {
+            font-size: 2rem; font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a {
+            color: #ffffff; text-decoration: none;
+            padding: 0.5rem 1rem; border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(255, 255, 255, 0.1); transform: translateY(-2px);
+        }
+        .page-header { text-align: center; padding: 3rem 0; background: rgba(0, 0, 0, 0.5); }
+        .page-header h1 {
+            font-size: 2.5rem; margin-bottom: 1rem; color: #ff6b6b;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .search-filter {
+            background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 15px;
+            margin: 2rem 0; backdrop-filter: blur(10px);
+        }
+        .search-container { display: flex; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .search-input, .filter-select {
+            padding: 12px; border: none; border-radius: 25px;
+            background: rgba(255, 255, 255, 0.9); color: #333; font-size: 1rem;
+        }
+        .search-input { flex: 1; min-width: 250px; }
+        .search-input:focus { outline: none; box-shadow: 0 0 10px rgba(78, 205, 196, 0.5); }
+        .grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem; margin-top: 2rem;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1); border-radius: 15px; overflow: hidden;
+            transition: all 0.3s ease; backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer;
+        }
+        .card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); }
+        .card-image {
+            width: 100%; height: 280px; background: #333; display: flex;
+            align-items: center; justify-content: center; position: relative;
+        }
+        .card-image img { width: 100%; height: 100%; object-fit: cover; }
+        .card-overlay {
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, transparent 100%);
+            opacity: 0; transition: opacity 0.3s ease;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .card:hover .card-overlay { opacity: 1; }
+        .play-button {
+            background: rgba(255, 107, 107, 0.9); border: none; border-radius: 50%;
+            width: 60px; height: 60px; color: white; font-size: 1.5rem;
+            cursor: pointer; transform: scale(0); transition: transform 0.3s ease;
+        }
+        .card:hover .play-button { transform: scale(1); }
+        .card-content { padding: 1rem; }
+        .card-title { font-size: 1rem; font-weight: bold; margin-bottom: 0.5rem; }
+        .card-date { color: #aaa; font-size: 0.8rem; }
+        .loading { display: flex; justify-content: center; align-items: center; height: 200px; }
+        .spinner {
+            width: 50px; height: 50px; border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #4ecdc4; border-radius: 50%; animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .no-results { text-align: center; padding: 3rem; color: #aaa; }
+        .results-count { margin: 1rem 0; color: #4ecdc4; font-weight: bold; }
+        .menu-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-links {
+                position: fixed; top: 80px; left: -100%; width: 100%; height: calc(100vh - 80px);
+                background: rgba(0, 0, 0, 0.95); flex-direction: column;
+                align-items: center; padding-top: 2rem; transition: left 0.3s ease;
+            }
+            .nav-links.active { left: 0; }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>Filmes</h1>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="series.html">Séries</a></li>
-                <li><a href="animes.html">Animes</a></li>
-            </ul>
-            <input type="text" id="search" placeholder="Pesquisar...">
-        </nav>
-    </header>
+<header>
+    <nav class="container">
+        <div class="logo">StreamFlix</div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="filmes.html" class="active">Filmes</a></li>
+            <li><a href="series.html">Séries</a></li>
+            <li><a href="animes.html">Animes</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <main id="catalogo"></main>
+<main>
+    <section class="page-header">
+        <div class="container">
+            <h1>Catálogo de Filmes</h1>
+        </div>
+    </section>
 
-    <script src="script.js"></script>
-    <script>
-        carregarCatalogo("data/catalog-filmes.json");
-    </script>
+    <div class="container">
+        <div class="search-filter">
+            <div class="search-container">
+                <input type="text" class="search-input" id="searchInput" placeholder="Pesquisar filmes...">
+                <select class="filter-select" id="sortSelect">
+                    <option value="newest">Mais recentes</option>
+                    <option value="oldest">Mais antigos</option>
+                    <option value="title">Ordem alfabética</option>
+                </select>
+            </div>
+            <div class="results-count" id="resultsCount"></div>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+        </div>
+
+        <div class="grid" id="moviesGrid"></div>
+        
+        <div class="no-results" id="noResults" style="display: none;">
+            <h2>🔍</h2>
+            <p>Nenhum filme encontrado</p>
+        </div>
+    </div>
+</main>
+
+<script>
+    let allMovies = [];
+    let filteredMovies = [];
+
+    function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    }
+
+    async function loadMovies() {
+        try {
+            const response = await fetch('data/catalog-filmes.json');
+            allMovies = await response.json();
+            filteredMovies = [...allMovies];
+            sortMovies();
+            displayMovies();
+            updateResultsCount();
+            document.getElementById('loading').style.display = 'none';
+        } catch (error) {
+            console.error('Erro ao carregar filmes:', error);
+            document.getElementById('loading').innerHTML = '<p>Erro ao carregar filmes</p>';
+        }
+    }
+
+    function displayMovies() {
+        const grid = document.getElementById('moviesGrid');
+        const noResults = document.getElementById('noResults');
+        
+        if (filteredMovies.length === 0) {
+            grid.style.display = 'none';
+            noResults.style.display = 'block';
+            return;
+        }
+        
+        grid.style.display = 'grid';
+        noResults.style.display = 'none';
+        
+        grid.innerHTML = filteredMovies.map(movie => createMovieCard(movie)).join('');
+    }
+
+    function createMovieCard(movie) {
+        const formatDate = dateStr => new Date(dateStr).toLocaleDateString('pt-BR');
+        return `
+            <div class="card" onclick="openMovie('${movie.link}')">
+                <div class="card-image">
+                    <img src="${movie.capa}" alt="${movie.titulo}" onerror="this.style.display='none'; this.parentElement.innerHTML='🎬'">
+                    <div class="card-overlay"><button class="play-button">▶</button></div>
+                </div>
+                <div class="card-content">
+                    <div class="card-title">${movie.titulo}</div>
+                    <div class="card-date">${formatDate(movie.dataAdicao)}</div>
+                </div>
+            </div>
+        `;
+    }
+
+    function openMovie(link) {
+        if (link) window.location.href = link;
+    }
+
+    function updateResultsCount() {
+        document.getElementById('resultsCount').textContent = `${filteredMovies.length} filme(s) encontrado(s)`;
+    }
+
+    function filterMovies() {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        filteredMovies = allMovies.filter(movie => movie.titulo.toLowerCase().includes(searchTerm));
+        sortMovies();
+        displayMovies();
+        updateResultsCount();
+    }
+
+    function sortMovies() {
+        const sortValue = document.getElementById('sortSelect').value;
+        filteredMovies.sort((a, b) => {
+            if (sortValue === 'newest') return new Date(b.dataAdicao) - new Date(a.dataAdicao);
+            if (sortValue === 'oldest') return new Date(a.dataAdicao) - new Date(b.dataAdicao);
+            if (sortValue === 'title') return a.titulo.localeCompare(b.titulo);
+        });
+    }
+
+    document.getElementById('searchInput').addEventListener('input', filterMovies);
+    document.getElementById('sortSelect').addEventListener('change', () => { sortMovies(); displayMovies(); updateResultsCount(); });
+
+    window.onload = loadMovies;
+</script>
 </body>
 </html>
