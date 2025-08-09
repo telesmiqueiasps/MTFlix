@@ -60,7 +60,7 @@
         "tipo": "filme",
         "titulo": "Harry Potter e a Pedra Filosofal",
         "capa": "img/capas/filmes/capa_filme8.jpg",
-        "link": "https://drive.google.com/file/d/1XUniwCUHkqo_K2nbfC-9YtijvqwUM-X1/preview",
+        "link": "https://drive.google.com/file/d/1YHl8OZWuHrSGspti3EXTWM6jz1ZMqpRr/preview",
         "dataAdicao": "2025-08-04"
     },
     {
@@ -92,7 +92,7 @@
         "tipo": "filme",
         "titulo": "Harry Potter e a Ordem da Fênix",
         "capa": "img/capas/filmes/capa_filme12.jpg",
-        "link": "https://drive.google.com/file/d/1aI5kjgspDpZZ9gdJF7gNXK6gRmdvaCjW/preview",
+        "link": "https://drive.google.com/file/d/1JlO8UuQCzgqXjJmvKWNQgkzin0x1uJ0t/preview",
         "dataAdicao": "2025-08-04"
     },
     {
@@ -124,6 +124,22 @@
         "tipo": "filme",
         "titulo": "Animais Fantásticos e Onde Habitam",
         "capa": "img/capas/filmes/capa_filme16.jpg",
+        "link": "https://drive.google.com/file/d/1Hn0q0SP7LhWG47waGFa8D7yW6OPwptpC/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme17",
+        "tipo": "filme",
+        "titulo": "Animais Fantásticos Os Crimes de Grindelwald",
+        "capa": "img/capas/filmes/capa_filme17.jpg",
+        "link": "https://drive.google.com/file/d/1Hn0q0SP7LhWG47waGFa8D7yW6OPwptpC/preview",
+        "dataAdicao": "2025-08-04"
+    },
+    {
+        "id": "filme18",
+        "tipo": "filme",
+        "titulo": "Animais Fantásticos Os Segredos de Dumbledore",
+        "capa": "img/capas/filmes/capa_filme18.jpg",
         "link": "https://drive.google.com/file/d/1Hn0q0SP7LhWG47waGFa8D7yW6OPwptpC/preview",
         "dataAdicao": "2025-08-04"
     }
